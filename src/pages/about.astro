@@ -8,6 +8,9 @@ const pageTitle = "About Me";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="boxicons.min.css">
+    
+
 		<title>Foods</title>
 	</head>
 	<script src="preline/dist/preline"></script>
@@ -15,11 +18,13 @@ const pageTitle = "About Me";
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
-    <link rel="stylesheet" href="boxicons.min.css">
 
 		<!-- <h1>About me</h1> -->
     <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
+    <box-icon type="solid" name="moon" class="fill-current"></box-icon>
+    <box-icon type="solid" name="hot"></box-icon>
+    <box-icon type="logo" name="facebook-square"></box-icon>
     <div class="prose">
       { pageTitle }
     </div>
