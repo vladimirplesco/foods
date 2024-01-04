@@ -9,5 +9,8 @@ export default {
 	plugins: [
 		require('preline/plugin'),
 		require('@tailwindcss/forms'),
+		require('@tailwindcss/typography'),
+		require('daisyui'),
+		require('boxicons'),
 	],
 }
