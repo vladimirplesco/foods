@@ -1,28 +1,7 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Home Page";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Foods</title>
-	</head>
-	<!-- <script src="preline/dist/preline"></script> -->
-	
-	<body class="bg-gray-300">
-		
-	
-		<a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-
-		<h1>Продукты</h1>
-		<box-icon type="solid" name="moon" class="fill-current"></box-icon>
-    <box-icon type="solid" name="hot"></box-icon>
-    <box-icon type="logo" name="facebook-square"></box-icon>
-	</body>
-</html>
-<script>import 'boxicons';</script>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>My awesome blog subtitle</h2>
+</BaseLayout>

@@ -1,23 +1,14 @@
 ---
 const pageTitle = "About Me";
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-   
-    
-
-		<title>Foods</title>
-	</head>
-	<script src="preline/dist/preline"></script>
-	<body class="bg-gray-300">
-    <a href="/">Home</a>
+<BaseLayout >
+    <!-- <a href="/">Home</a>
     <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+    <a href="/blog/">Blog</a> -->
+    <!-- <box-icon type="solid" name="moon" class="fill-current"></box-icon>
+    <box-icon type="solid" name="hot"></box-icon>
+    <box-icon type="logo" name="facebook-square"></box-icon> -->
 
 		<!-- <h1>About me</h1> -->
     <h1>{pageTitle}</h1>
@@ -49,6 +40,14 @@ const pageTitle = "About Me";
   <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
 
   <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+  <div x-data="{ foo: 'bob' }">
+    <span x-text="foo"><!-- Will output: "bob" --></span>
+</div>
+<script>
+  import Alpine from "alpinejs";
+  import persist from "@alpinejs/persist";
+  Alpine.plugin(persist);
+  Alpine.start();
+</script>
+</BaseLayout>
 
-	</body>
-</html>
