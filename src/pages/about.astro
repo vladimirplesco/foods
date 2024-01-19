@@ -25,7 +25,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div x-show="open" @click.outside="open = false">Contents...</div>
   </div>
   <div
-    x-data="{
+    x-data=`{
         search: '',
  
         items: ['foo', 'bar', 'baz'],
@@ -35,7 +35,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 i => i.startsWith(this.search)
             )
         }
-    }"
+    }`
 >
     <input x-model="search" placeholder="Search...">
  
@@ -76,9 +76,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </div>
 <script>
   import Alpine from "alpinejs";
-  // import persist from "@alpinejs/persist";
-  // Alpine.plugin(persist);
-  // Alpine.start();
+  import persist from "@alpinejs/persist";
+  Alpine.plugin(persist);
+  Alpine.start();
 </script>
 </BaseLayout>
 
