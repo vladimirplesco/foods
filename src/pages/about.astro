@@ -30,8 +30,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div x-show="open">Contents...</div>
   </div>
   
-  <div
-    x-data=`{
+  <div x-data="search">
+    <!-- x-data=`{
         search: '',
  
         items: ['foo', 'bar', 'baz'],
@@ -41,8 +41,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 i => i.startsWith(this.search)
             )
         }
-    }`
->
+    }` -->
+<!-- > -->
     <input x-model="search" placeholder="Search...">
  
     <ul>
@@ -84,8 +84,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   import Alpine from "alpinejs";
   import persist from "@alpinejs/persist";
   import dropdown from './dropdown.js';
+  import search from './search.js';
   Alpine.plugin(persist);
-  Alpine.data('dropdown', dropdown)
+  Alpine.data('dropdown', dropdown);
+  Alpine.data('search', search)
     // document.addEventListener('alpine:init', () => {
     //     Alpine.data('dropdown', () => ({
     //         open: false,
