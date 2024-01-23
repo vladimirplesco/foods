@@ -1,6 +1,35 @@
 ---
 const pageTitle = "About Me";
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+var foods =[];
+foods[0] = {
+  name: "капуста",
+  dish: "борщ"
+}
+foods[1] = {
+  name: "картошка",
+  dish: "борщ"
+}
+foods[2] = {
+  name: "мясо",
+  dish: "борщ"
+}
+foods[3] = {
+  name: "капуста",
+  dish: "голубцы"
+}
+foods[4] = {
+  name: "рис",
+  dish: "голубцы"
+}
+foods[5] = {
+  name: "мясо",
+  dish: "голубцы"
+}
+
+
+
 ---
 <BaseLayout >
     <!-- <a href="/">Home</a>
@@ -12,6 +41,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 		<!-- <h1>About me</h1> -->
     <h1>{pageTitle}</h1>
+    <div>
+      <p>Мои продукты:</p>
+        <ul>
+          {foods.map((food) => <li>{food.name}  {food.dish}</li>)}
+        </ul>
+    </div>
     <h2>... and my new Astro site!</h2>
     <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>
     <div x-data="{ count: $persist(0) }">
