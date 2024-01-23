@@ -3,30 +3,32 @@ const pageTitle = "About Me";
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 var foods =[];
-foods[0] = {
+foods = [
+{
   name: "капуста",
   dish: "борщ"
-}
-foods[1] = {
+},
+{
   name: "картошка",
   dish: "борщ"
-}
-foods[2] = {
+},
+{
   name: "мясо",
   dish: "борщ"
-}
-foods[3] = {
+},
+{
   name: "капуста",
   dish: "голубцы"
-}
-foods[4] = {
+},
+{
   name: "рис",
   dish: "голубцы"
-}
-foods[5] = {
+},
+{
   name: "мясо",
   dish: "голубцы"
-}
+},
+]
 var uniqueDishes = [];
 var dishes = [];
 foods.forEach((food)=>{
