@@ -27,8 +27,13 @@ foods[5] = {
   name: "мясо",
   dish: "голубцы"
 }
-
-
+var uniqueDishes = [];
+var dishes = [];
+foods.forEach((food)=>{
+  dishes = [...dishes, food.dish];
+});
+uniqueDishes = dishes.filter((element, index) => dishes.indexOf(element) === index);
+Источник: https://uchet-jkh.ru/i/kak-ubrat-iz-massiva-povtoryayushhiesya-elementy-v-javascript
 
 ---
 <BaseLayout >
@@ -45,6 +50,10 @@ foods[5] = {
       <p>Мои продукты:</p>
         <ul>
           {foods.map((food) => <li>{food.name}  {food.dish}</li>)}
+        </ul>
+        <p>Мои блюда:</p>
+        <ul>
+          {uniqueDishes.map((dish) => <li>{dish}</li>)}
         </ul>
     </div>
     <h2>... and my new Astro site!</h2>
