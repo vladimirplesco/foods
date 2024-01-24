@@ -1,40 +1,44 @@
 ---
 const pageTitle = "About Me";
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-var foods =[];
-foods = [
-{
-  name: "капуста",
-  dish: "борщ"
-},
-{
-  name: "картошка",
-  dish: "борщ"
-},
-{
-  name: "мясо",
-  dish: "борщ"
-},
-{
-  name: "капуста",
-  dish: "голубцы"
-},
-{
-  name: "рис",
-  dish: "голубцы"
-},
-{
-  name: "мясо",
-  dish: "голубцы"
-},
-]
-var uniqueDishes = [];
-var dishes = [];
-foods.forEach((food)=>{
-  dishes = [...dishes, food.dish];
-});
-uniqueDishes = dishes.filter((element, index) => dishes.indexOf(element) === index);
+// const { frontmatter } = Astro.props;
+// interface Frontmatter {
+//   foods: string;
+// }
+// const foods = await Astro.glob<Frontmatter>('../pages/foods/foods.md');
+// var foods =[];
+// foods = [
+// {
+//   name: "капуста",
+//   dish: "борщ"
+// },
+// {
+//   name: "картошка",
+//   dish: "борщ"
+// },
+// {
+//   name: "мясо",
+//   dish: "борщ"
+// },
+// {
+//   name: "капуста",
+//   dish: "голубцы"
+// },
+// {
+//   name: "рис",
+//   dish: "голубцы"
+// },
+// {
+//   name: "мясо",
+//   dish: "голубцы"
+// },
+// ]
+// var uniqueDishes = [];
+// var dishes = [];
+// foods.forEach((food)=>{
+//   dishes = [...dishes, food.dish];
+// });
+// uniqueDishes = dishes.filter((element, index) => dishes.indexOf(element) === index);
 ---
 <BaseLayout >
     <!-- <a href="/">Home</a>
@@ -48,13 +52,13 @@ uniqueDishes = dishes.filter((element, index) => dishes.indexOf(element) === ind
     <h1>{pageTitle}</h1>
     <div>
       <p>Мои продукты:</p>
-        <ul>
-          {foods.map((food) => <li>{food.name}  {food.dish}</li>)}
-        </ul>
-        <p>Мои блюда:</p>
+        <!-- <ul>
+          {foods.map((food) => <li>{food}</li>)}
+        </ul> -->
+        <!-- <p>Мои блюда:</p>
         <ul>
           {uniqueDishes.map((dish) => <li>{dish}</li>)}
-        </ul>
+        </ul> -->
     </div>
     <h2>... and my new Astro site!</h2>
     <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>

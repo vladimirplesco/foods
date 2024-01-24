@@ -1,5 +1,6 @@
 ---
-const { pageTitle } = Astro.props;
+// const { pageTitle } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
 <html lang="en">
@@ -19,8 +20,8 @@ const { pageTitle } = Astro.props;
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
 
-		<!-- <h1>Продукты</h1> -->
-    <h1>{ pageTitle }</h1>
+		<h1>Продукты</h1>
+    <h1>{frontmatter.title}</h1>
 		<box-icon type="solid" name="moon" class="fill-current"></box-icon>
     <box-icon type="solid" name="hot"></box-icon>
     <box-icon type="logo" name="facebook-square"></box-icon>
