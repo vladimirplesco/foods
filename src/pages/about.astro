@@ -1,65 +1,40 @@
 ---
 const pageTitle = "About Me";
 import BaseLayout from '../layouts/BaseLayout.astro';
-// const { frontmatter } = Astro.props;
-// interface Frontmatter {
-//   foods: string;
-// }
-// const foods = await Astro.glob<Frontmatter>('../pages/foods/foods.md');
-// var foods =[];
-// foods = [
-// {
-//   name: "капуста",
-//   dish: "борщ"
-// },
-// {
-//   name: "картошка",
-//   dish: "борщ"
-// },
-// {
-//   name: "мясо",
-//   dish: "борщ"
-// },
-// {
-//   name: "капуста",
-//   dish: "голубцы"
-// },
-// {
-//   name: "рис",
-//   dish: "голубцы"
-// },
-// {
-//   name: "мясо",
-//   dish: "голубцы"
-// },
-// ]
-// var uniqueDishes = [];
-// var dishes = [];
-// foods.forEach((food)=>{
-//   dishes = [...dishes, food.dish];
-// });
-// uniqueDishes = dishes.filter((element, index) => dishes.indexOf(element) === index);
+const allDishes = await Astro.glob('../pages/foods/*.md');
+const dishes = ['q','w','e'];
+// const dishes = 'qwe';
 ---
 <BaseLayout >
-    <!-- <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a> -->
-    <!-- <box-icon type="solid" name="moon" class="fill-current"></box-icon>
-    <box-icon type="solid" name="hot"></box-icon>
-    <box-icon type="logo" name="facebook-square"></box-icon> -->
-
-		<!-- <h1>About me</h1> -->
     <h1>{pageTitle}</h1>
     <div>
       <p>Мои продукты:</p>
         <!-- <ul>
-          {foods.map((food) => <li>{food}</li>)}
-        </ul> -->
-        <!-- <p>Мои блюда:</p>
-        <ul>
-          {uniqueDishes.map((dish) => <li>{dish}</li>)}
+          {allDishes.map(dish => <li>{dish.frontmatter.dish.name},{dish.frontmatter.dish.foods.map(food => <ul><li>{food}</li></ul>)}</li>)}
         </ul> -->
     </div>
+   
+    <script define:vars={{ dishes }}>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("dishes", () => ({
+          get dishes() {
+            return dishes;
+          },
+        }));
+      });
+    </script>
+    <!-- // вот так x-data сработал для строки dishes -->
+    <!-- // без define:vars -->
+      <!-- <ul x-data={`{ds: "${dishes}"}`}>
+        <template x-for="dish in ds">
+            <li x-text="dish"></li>
+        </template>
+      </ul> -->
+      <ul x-data="dishes">
+        <template x-for="dish in dishes">
+            <li x-text="dish"></li>
+        </template>
+      </ul>
     <h2>... and my new Astro site!</h2>
     <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>
     <div x-data="{ count: $persist(0) }">
@@ -145,6 +120,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     //         }
     //     }))
     // })
+    
   Alpine.start();
 </script>
 </BaseLayout>
