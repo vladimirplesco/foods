@@ -18,15 +18,18 @@ const allDishes = await Astro.glob('../pages/foods/*.md');
         </template>
     </ul>
   </div>
+  <script  >
+    import Alpine from "alpinejs";
+    import persist from "@alpinejs/persist";
     
-<script define:vars={{ allDishes }} >
-  import Alpine from "alpinejs";
-  import persist from "@alpinejs/persist";
-  import allDishes from './allDishes.js';
-  Alpine.plugin(persist);
-  window["Alpine"] = Alpine; 
-  Alpine.data('allDishes', allDishes);   
-  Alpine.start();
-</script>
+    Alpine.plugin(persist);
+    window["Alpine"] = Alpine;
+    Alpine.start(); 
+  </script>
+  <script define:vars={{ allDishes }}>
+    import allDishes from './allDishes.js'; 
+    Alpine.data('allDishes', allDishes);   
+  
+  </script>
 </BaseLayout>
 
