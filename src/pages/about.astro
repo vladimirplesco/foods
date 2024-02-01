@@ -2,8 +2,6 @@
 const pageTitle = "About Me";
 import BaseLayout from '../layouts/BaseLayout.astro';
 const allDishes = await Astro.glob('../pages/foods/*.md');
-const dishes = ['q','w','e'];
-// const dishes = 'qwe';
 ---
 <BaseLayout >
     <h1>{pageTitle}</h1>
@@ -13,28 +11,21 @@ const dishes = ['q','w','e'];
           {allDishes.map(dish => <li>{dish.frontmatter.dish.name},{dish.frontmatter.dish.foods.map(food => <ul><li>{food}</li></ul>)}</li>)}
         </ul> -->
     </div>
-   
-    <script define:vars={{ dishes }}>
-      document.addEventListener("alpine:init", () => {
-        Alpine.data("dishes", () => ({
-          get dishes() {
-            return dishes;
-          },
-        }));
-      });
-    </script>
-    <ul x-data="dishes">
-        <template x-for="dish in dishes">
-            <li x-text="dish"></li>
+   <div>
+    <ul x-data="allDishes">
+        <template x-for="d in allDishes"> -->
+            <li x-text="d"></li>
         </template>
     </ul>
+  </div>
     
-<script>
+<script define:vars={{ allDishes }} >
   import Alpine from "alpinejs";
   import persist from "@alpinejs/persist";
-  
+  import allDishes from './allDishes.js';
   Alpine.plugin(persist);
-      
+  window["Alpine"] = Alpine; 
+  Alpine.data('allDishes', allDishes);   
   Alpine.start();
 </script>
 </BaseLayout>
