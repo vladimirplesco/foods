@@ -1,9 +1,10 @@
 export default () => ({
-  get allDishes() {
+    // get allDishes() {
     const arr_key = [];
     const arr_val = [];
     const arr_common = {};
     for(let key in allDishes) {
+      alert(key);
       // arr_key.push(allDishes[key].frontmatter.dish.name);
       // arr_val.push(allDishes[key].frontmatter.dish.foods);
       arr_common[allDishes[key].frontmatter.dish.name] = allDishes[key].frontmatter.dish.foods;

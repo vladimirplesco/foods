@@ -1,36 +1,50 @@
 ---
 const pageTitle = "About Me";
+import { getCollection } from "astro:content";
 import BaseLayout from '../layouts/BaseLayout.astro';
-const allDishes = await Astro.glob('../pages/foods/*.md');
+// const allDishes = await Astro.glob('../pages/foods/*.md');
+const allDishes = await getCollection("foods");
+// const dishes = ['q','w','e'];
+// const dishes = 'qwe';
 ---
 <BaseLayout >
     <h1>{pageTitle}</h1>
     <div>
       <p>Мои продукты:</p>
         <!-- <ul>
-          {allDishes.map(dish => <li>{dish.frontmatter.dish.name},{dish.frontmatter.dish.foods.map(food => <ul><li>{food}</li></ul>)}</li>)}
+          {allDishes.map(dish => <li>{dish.data.dish.name}</li>)}
         </ul> -->
     </div>
-   <div>
-    <ul x-data="allDishes">
-        <template x-for="d in allDishes"> -->
-            <li x-text="d"></li>
+   
+    <script define:vars={{ allDishes }}>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("allDishes", () => ({
+          get allDishes() {
+            return allDishes;
+          },
+        }));
+      });
+    </script>
+  <div x-data="allDishes">
+        <template x-for="dish in allDishes"> 
+          <div>
+            <h2 x-text="dish.data.dish.name"></h2>
+                <template x-for="food in dish.data.dish.foods">
+                  <div>
+                    <li x-text="food"></li>
+                  </div>
+                </template>
+          </div>
         </template>
-    </ul>
   </div>
-  <script>
-    import Alpine from "alpinejs";
-    import persist from "@alpinejs/persist";
-    import allDishes from './allDishes.js'; 
-    Alpine.plugin(persist);
-    window["Alpine"] = Alpine;
-    Alpine.data('allDishes', allDishes);
-    Alpine.start(); 
-  </script>
-  <script define:vars={{ allDishes }}>
-    alert("hello");
-    // Alpine.data('allDishes', allDishes); 
-    alert("bye");  
-  </script>
+    
+<script>
+  import Alpine from "alpinejs";
+  import persist from "@alpinejs/persist";
+  
+  Alpine.plugin(persist);
+  window["Alpine"] = Alpine;    
+  Alpine.start();
+</script>
 </BaseLayout>
 

@@ -1,0 +1,40 @@
+---
+const pageTitle = "About Me";
+import BaseLayout from '../layouts/BaseLayout.astro';
+const allDishes = await Astro.glob('../pages/foods/*.md');
+---
+<BaseLayout >
+    <h1>{pageTitle}</h1>
+    <div>
+      <p>Мои продукты:</p>
+        <ul>
+          {allDishes.map(dish => <li>{dish.frontmatter.dish.name},{dish.frontmatter.dish.foods.map(food => <ul><li>{food}</li></ul>)}</li>)}
+        </ul>
+    </div>
+   <div>
+    <!-- <ul x-data="allDishes">
+        <template x-for="d in allDishes">
+            <li x-text="d"></li>
+        </template>
+    </ul> -->
+  </div>
+  <script>
+    import Alpine from "alpinejs";
+    import persist from "@alpinejs/persist";
+    import allDishes from './allDishes.js'; 
+    Alpine.plugin(persist);
+    window["Alpine"] = Alpine;
+    Alpine.data('allDishes', allDishes);
+    Alpine.start(); 
+  </script>
+  <script define:vars={{ allDishes }}>
+    document.addEventListener("alpine:init", () => {
+    Alpine.data("allDishes", () => ({
+      get allDishes() {
+        return allDishes;
+      },
+      }));
+    }); 
+  </script>
+</BaseLayout>
+

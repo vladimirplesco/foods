@@ -1,21 +1,17 @@
 // Import utilities from `astro:content`
 import { z, defineCollection } from "astro:content";
 // Define a `type` and `schema` for each collection
-const postsCollection = defineCollection({
+const foodsCollection = defineCollection({
     type: 'content',
     schema: z.object({
       title: z.string(),
-      pubDate: z.date(),
-      description: z.string(),
-      author: z.string(),
-      image: z.object({
-        url: z.string(),
-        alt: z.string()
+      dish: z.object({
+        name: z.string(),
+        foods: z.array(z.string())
       }),
-      tags: z.array(z.string())
     })
 });
 // Export a single `collections` object to register your collection(s)
 export const collections = {
-  posts: postsCollection,
+  foods: foodsCollection,
 };

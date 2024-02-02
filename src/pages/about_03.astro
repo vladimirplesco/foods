@@ -2,7 +2,7 @@
 const pageTitle = "About Me";
 import BaseLayout from '../layouts/BaseLayout.astro';
 const allDishes = await Astro.glob('../pages/foods/*.md');
-const dishes = ['q','w','e'];
+// const dishes = ['q','w','e'];
 // const dishes = 'qwe';
 ---
 <BaseLayout >
@@ -18,24 +18,25 @@ const dishes = ['q','w','e'];
       document.addEventListener("alpine:init", () => {
         Alpine.data("allDishes", () => ({
           get allDishes() {
+            const arr = [];
             const arr_key = [];
             const arr_val = [];
             const arr_common = {};
-            const len =allDishes.length;
             for(let key in allDishes) {
-              // arr_key.push(allDishes[key].frontmatter.dish.name);
-              // arr_val.push(allDishes[key].frontmatter.dish.foods);
-              arr_common[allDishes[key].frontmatter.dish.name] = allDishes[key].frontmatter.dish.foods;
-              alert(allDishes[key].frontmatter.dish.name);
+              arr.push(allDishes[key].frontmatter.dish.name);
+              arr.push(allDishes[key].frontmatter.dish.foods);
+              // arr_common[allDishes[key].frontmatter.dish.name] = allDishes[key].frontmatter.dish.foods;
+              // alert(allDishes[key].frontmatter.dish.name);
             }
-            return arr_common;
+            return arr;
+            // return allDishes;
           },
         }));
       });
     </script>
   <div>
     <ul x-data="allDishes">
-        <template x-for="d in allDishes"> -->
+        <template x-for="d in allDishes"> 
             <li x-text="d"></li>
         </template>
     </ul>
