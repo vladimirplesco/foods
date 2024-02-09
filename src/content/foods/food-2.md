@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BaseLayout.astro
+# layout: ../../layouts/BaseLayout.astro
 title: 'Astro v1 Launch!'
 dish: {
   name: "Голубцы",

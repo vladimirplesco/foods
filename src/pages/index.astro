@@ -1,7 +1,25 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = "Home Page";
+import "@fontsource-variable/inter";
+import "../assets/css/global.css";
+
+import Theme from "../components/Theme.astro";
+
 ---
-<BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
-</BaseLayout>
+
+<html lang="ru" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Foods</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <Theme />
+    <!-- <Lists /> -->
+  </body>
+</html>
+<script>
+  import "boxicons";
+</script>
