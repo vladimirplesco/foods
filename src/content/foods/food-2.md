@@ -1,10 +1,6 @@
 ---
-# layout: ../../layouts/BaseLayout.astro
-title: 'Astro v1 Launch!'
-dish: {
-  name: "Голубцы",
-  foods: ["Капуста","Рис","Мясо"]
-}
+name: "Голубцы",
+foods: ["Капуста","Рис","Мясо"]
 ---
 
 # Hi there!

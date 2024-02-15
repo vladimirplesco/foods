@@ -4,12 +4,8 @@ import { z, defineCollection } from "astro:content";
 const foodsCollection = defineCollection({
     type: 'content',
     schema: z.object({
-      title: z.string(),
-      dish: z.object({
-        name: z.string(),
-        foods: z.array(z.string())
-      }),
-    })
+      name: z.string(),
+      foods: z.array(z.string())
 });
 // Export a single `collections` object to register your collection(s)
 export const collections = {
