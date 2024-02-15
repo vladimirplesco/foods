@@ -6,8 +6,9 @@ const foodsCollection = defineCollection({
     schema: z.object({
       name: z.string(),
       foods: z.array(z.string())
+    })
 });
 // Export a single `collections` object to register your collection(s)
 export const collections = {
-  foods: foodsCollection,
+  dishes: foodsCollection,
 };

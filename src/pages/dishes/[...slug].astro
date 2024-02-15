@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const foodEntries = await getCollection('foods');
+  const foodEntries = await getCollection('dishes');
   return foodEntries.map(entry => ({
     params: { slug: entry.slug }, props: { entry },
   }));
