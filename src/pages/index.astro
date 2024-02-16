@@ -6,8 +6,9 @@ import { getCollection } from "astro:content";
 import { sortDishes } from "../utils/helpers";
 
 import Theme from "../components/Theme.astro";
-// import Lists from "../components/Lists.astro";
+import Lists from "../components/Lists.astro";
 
+// const dishes = await getCollection("dishes");
 const dishes = await sortDishes(getCollection("dishes"))
 .map((dish) => ({
   data: dish.data,
@@ -16,7 +17,7 @@ const dishes = await sortDishes(getCollection("dishes"))
 }));
 ---
 
-<html lang="ru">
+<html lang="ru" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="robots" content="noindex, nofollow, noarchive" />
@@ -27,25 +28,15 @@ const dishes = await sortDishes(getCollection("dishes"))
   </head>
   <body>
     <Theme />
-    <h1>Hello</h1>
+    <!-- <h1>Hello</h1> -->
     <div>
       <p>Мои блюда:</p>
         <ul>
-          {sortDishes(dishes).map(dish => <li>{dish.data.foods[1]}</li>)}
+          {sortDishes(dishes).map(dish => <li>{dish.data.name}</li>)}
         </ul>
     </div>
-    <section class="_section">
-      <div class="_container">
-        <div>
-          <div x-data="dishes">
-            <template x-for="dish in dishes" :key="dish.slug">
-              <h2 x-text="dish.data.name"></h2>
-            </template>
     
-          </div>
-        </div>
-    </section>
-    <!-- <Lists /> -->
+    <Lists />
   </body>
 </html>
 <script>
@@ -55,17 +46,9 @@ const dishes = await sortDishes(getCollection("dishes"))
   document.addEventListener("alpine:init", () => {
     Alpine.data("dishes", () => ({
       get dishes() {
-        console.log("hello");
         return dishes;
       },
     }));
   });
 </script>
-<script>
-  import Alpine from "alpinejs";
-  import persist from "@alpinejs/persist";
-
-  Alpine.plugin(persist);
-  window["Alpine"] = Alpine;
-  Alpine.start();
-</script>
+<script src= "../assets/js/foods"></script>

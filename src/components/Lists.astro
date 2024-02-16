@@ -3,10 +3,12 @@
 
 <section class="_section">
   <div class="_container">
-    <!-- <div x-data="recipes"> -->
+    <div>
       <div x-data="dishes">
+        <template x-for="dish in dishes" :key="dish.slug">
+          <h2 x-text="dish.data.name"></h2>
+        </template>
 
       </div>
-    <!-- </div> -->
-  </div>
+    </div>
 </section>
