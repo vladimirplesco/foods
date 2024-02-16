@@ -9,7 +9,7 @@ import Theme from "../components/Theme.astro";
 import Lists from "../components/Lists.astro";
 
 // const dishes = await getCollection("dishes");
-const dishes = await sortDishes(getCollection("dishes"))
+const dishes = sortDishes(await getCollection("dishes"))
 .map((dish) => ({
   data: dish.data,
   slug: dish.slug,
