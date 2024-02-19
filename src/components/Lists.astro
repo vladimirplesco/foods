@@ -1,13 +1,13 @@
 ---
+import DishesList from "./DishesList.astro";
 ---
 
 <section class="_section">
   <div class="_container">
     <div>
       <div x-data="dishes">
-        <template x-for="dish in dishes" :key="dish.slug">
-          <h2 x-text="dish.data.name"></h2>
-        </template>
+        
+        <DishesList />
 
       </div>
     </div>

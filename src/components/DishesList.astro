@@ -1,0 +1,14 @@
+---
+import ListTitle from "./ListTitle.astro";
+---
+
+<ListTitle title="Блюда" />
+
+<template x-for="dish in dishes" :key="dish.slug">
+  <div>
+    <div class="flex justify-between item-center gap-4">
+      <span x-text="dish.data.name"></span>
+    </div>
+  </div>
+</template>  
+

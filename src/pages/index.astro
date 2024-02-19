@@ -8,7 +8,6 @@ import { sortDishes } from "../utils/helpers";
 import Theme from "../components/Theme.astro";
 import Lists from "../components/Lists.astro";
 
-// const dishes = await getCollection("dishes");
 const dishes = sortDishes(await getCollection("dishes"))
 .map((dish) => ({
   data: dish.data,
@@ -28,14 +27,7 @@ const dishes = sortDishes(await getCollection("dishes"))
   </head>
   <body>
     <Theme />
-    <!-- <h1>Hello</h1> -->
-    <div>
-      <p>Мои блюда:</p>
-        <ul>
-          {sortDishes(dishes).map(dish => <li>{dish.data.name}</li>)}
-        </ul>
-    </div>
-    
+        
     <Lists />
   </body>
 </html>
