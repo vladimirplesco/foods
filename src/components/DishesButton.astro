@@ -1,0 +1,12 @@
+<div class="indicator flex-grow flex-shrink">
+  <span
+  class="indicator-item badge font-medium -top-1 end-4"></span>
+  <button
+    @click="view = 'dishes'"
+    class="btn btn-outline w-full p-6"
+    :class="view === 'dishes' && 'btn-active'"
+    >
+    <box-icon type="solid" name="dish" class="fill-current"></box-icon>
+  </button>
+
+</div>

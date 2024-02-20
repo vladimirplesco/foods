@@ -1,4 +1,5 @@
 ---
+import Navbar from "./Navbar.astro"
 import DishesList from "./DishesList.astro";
 ---
 
@@ -6,8 +7,11 @@ import DishesList from "./DishesList.astro";
   <div class="_container">
     <div>
       <div x-data="dishes">
+        <Navbar />
         
-        <DishesList />
+        <!-- <div x-show="view === 'dishes'"> -->
+          <DishesList />
+        <!-- </div> -->
 
       </div>
     </div>
