@@ -1,6 +1,28 @@
 import Alpine from "alpinejs";
-  import persist from "@alpinejs/persist";
+window["Alpine"] = Alpine;
 
-  Alpine.plugin(persist);
-  window["Alpine"] = Alpine;
+import persist from "@alpinejs/persist";
+Alpine.plugin(persist);
+  
+  Alpine.data("dishes", function () {
+    return {
+      view: this.$persist("dishes"),
+      search: this.$persist(""),
+
+      get dishes() {
+        const term = this.search.toLowerCase();
+        return this.dishes
+          .filter((dish) => !this.select.includes(dish.slug))
+          .filter((dish) => dish.data.name.toLowerCase().includes(term));
+      },
+      learAll() {
+        this.hide = false;
+        // this.buy = [];
+        // this.custom = [];
+        // this.select = [];
+        // this.search = "";
+      },
+  
+    };
+  });
   Alpine.start();

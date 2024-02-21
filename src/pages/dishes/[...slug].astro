@@ -2,12 +2,14 @@
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const foodEntries = await getCollection('dishes');
-  return foodEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  const dishes = await getCollection('dishes');
+  return dishes.map((dish) => ({
+    params: { slug: dish.slug }, props: { dish },
   }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { dish } = Astro.props;
+const { Content } = await dish.render();
+
+export const partial = true;
 ---

@@ -1,5 +1,6 @@
 ---
 import ListTitle from "./ListTitle.astro";
+import ListEmpty from "./ListEmpty.astro";
 ---
 
 <ListTitle title="Блюда" />
@@ -9,6 +10,9 @@ import ListTitle from "./ListTitle.astro";
     <div class="flex justify-between item-center gap-4">
       <span x-text="dish.data.name"></span>
     </div>
+    <div class="divider my-1"></div>
   </div>
-</template>  
+</template> 
+
+<ListEmpty show="!dishes.length" text="Блюда не найдены" />
 
