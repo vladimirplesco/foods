@@ -36,11 +36,11 @@ const dishes = sortDishes(await getCollection("dishes"))
 </script>
 <script define:vars={{ dishes }}>
   document.addEventListener("alpine:init", () => {
-    Alpine.data("dishes", () => ({
-      get dishes() {
-        return dishes;
-      },
-    }));
+    // Alpine.data("dishes", () => ({
+    //   get dishes() {
+    //     return dishes;
+    //   },
+    // }));
   });
 </script>
 <script src= "../assets/js/foods"></script>
