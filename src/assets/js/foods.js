@@ -9,19 +9,19 @@ Alpine.plugin(persist);
       view: this.$persist("dishes"),
       search: this.$persist(""),
 
-      get dishes() {
-        const term = this.search.toLowerCase();
-        return this.dishes
-          .filter((dish) => !this.select.includes(dish.slug))
-          .filter((dish) => dish.data.name.toLowerCase().includes(term));
-      },
-      learAll() {
-        this.hide = false;
-        // this.buy = [];
-        // this.custom = [];
-        // this.select = [];
-        // this.search = "";
-      },
+      // get dishes() {
+      //   const term = this.search.toLowerCase();
+      //   return this.dishes
+      //     .filter((dish) => !this.select.includes(dish.slug))
+      //     .filter((dish) => dish.data.name.toLowerCase().includes(term));
+      // },
+      // clearImmediatelearAll() {
+      //   this.hide = false;
+      //   // this.buy = [];
+      //   // this.custom = [];
+      //   // this.select = [];
+      //   // this.search = "";
+      // },
   
     };
   });
