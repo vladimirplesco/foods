@@ -6,7 +6,8 @@ import DishesList from "./DishesList.astro";
 <section class="_section">
   <div class="_container">
     <div>
-      <div x-data="dishes">
+      <div x-data="recipes">
+        <div x-data="foods">
         <Navbar />
         
         <div x-show="view === 'dishes'">
@@ -15,4 +16,5 @@ import DishesList from "./DishesList.astro";
 
       </div>
     </div>
+  </div>
 </section>

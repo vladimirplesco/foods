@@ -8,11 +8,11 @@ import { sortDishes } from "../utils/helpers";
 import Theme from "../components/Theme.astro";
 import Lists from "../components/Lists.astro";
 
-const dishes = sortDishes(await getCollection("dishes"))
-.map((dish) => ({
-  data: dish.data,
-  slug: dish.slug,
-  body: dish.body ? true : false,
+const recipes = sortDishes(await getCollection("recipes"))
+.map((recipe) => ({
+  data: recipe.data,
+  slug: recipe.slug,
+  body: recipe.body ? true : false,
 }));
 ---
 
@@ -34,13 +34,13 @@ const dishes = sortDishes(await getCollection("dishes"))
 <script>
   import "boxicons";
 </script>
-<script define:vars={{ dishes }}>
+<script define:vars={{ recipes }}>
   document.addEventListener("alpine:init", () => {
-    // Alpine.data("dishes", () => ({
-    //   get dishes() {
-    //     return dishes;
-    //   },
-    // }));
+    Alpine.data("recipes", () => ({
+      get recipes() {
+        return recipes;
+      },
+    }));
   });
 </script>
 <script src= "../assets/js/foods"></script>

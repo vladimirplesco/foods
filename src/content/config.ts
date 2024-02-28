@@ -10,5 +10,5 @@ const foodsCollection = defineCollection({
 });
 // Export a single `collections` object to register your collection(s)
 export const collections = {
-  dishes: foodsCollection,
+  recipes: foodsCollection,
 };
