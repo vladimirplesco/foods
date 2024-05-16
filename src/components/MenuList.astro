@@ -1,0 +1,25 @@
+---
+import ListTitle from "./ListTitle.astro";
+import ListEmpty from "./ListEmpty.astro";
+---
+
+<ListTitle title="Menu"/>
+
+<template x-for="dish in menu" :key="dish.slug">
+  <div>
+    <div class="flex justify-between items-center gap-4">
+      <span x-text="dish.data.name"></span> 
+      
+      <button
+        @click="toggleSelect(dish)"
+        class="btn btn-sm btn-square btn-outline"
+      >
+        <box-icon name="minus" class="fill-current"></box-icon>
+      </button>
+    </div>
+    <div class="divider my-1"></div>
+  </div>
+
+</template>
+
+<ListEmpty show="!menu.length" text="Блюда не выбраны." />

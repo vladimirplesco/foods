@@ -1,20 +1,24 @@
 ---
 import Navbar from "./Navbar.astro"
 import DishesList from "./DishesList.astro";
+import MenuList from "./MenuList.astro";
 ---
 
 <section class="_section">
   <div class="_container">
-    <div>
       <div x-data="recipes">
         <div x-data="foods">
-        <Navbar />
-        
-        <div x-show="view === 'dishes'">
-          <DishesList />
-        </div>
+          <Navbar />
+          
+          <div x-show="view === 'dishes'">
+            <DishesList />
+          </div>
 
+          <div x-show="view === 'menu'">
+            <MenuList />
+          </div>
+
+        </div>
       </div>
-    </div>
   </div>
 </section>

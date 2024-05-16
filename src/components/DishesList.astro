@@ -9,6 +9,13 @@ import ListEmpty from "./ListEmpty.astro";
   <div>
     <div class="flex justify-between item-center gap-4">
       <span x-text="dish.data.name"></span>
+
+      <button
+        @click="toggleSelect(dish)"
+        class="btn btn-sm btn-square btn-outline"
+      >
+        <box-icon name="plus" class="fill-current"></box-icon>
+      </button>
     </div>
     <div class="divider my-1"></div>
   </div>

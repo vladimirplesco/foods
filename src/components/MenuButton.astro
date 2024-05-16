@@ -1,0 +1,12 @@
+<div class="indicator flex-grow flex-shrink">
+  <span
+    x-text="select.length"
+    class="indicator-item badge font-medium -top-1 end-4"></span>
+  <button
+    @click="view = 'menu'"
+    class="btn btn-outline w-full p-0"
+    :class="view === 'menu' && 'btn-active'"
+  >
+    <box-icon type="solid" name="food-menu" class="fill-current"></box-icon>
+  </button>
+</div>
